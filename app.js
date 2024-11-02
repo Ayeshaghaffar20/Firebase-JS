@@ -1,4 +1,5 @@
 import { getAuth, createUserWithEmailAndPassword } from './firebase.js';
+// import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js';
 
 
 
@@ -9,7 +10,7 @@ const signUpForm = document.getElementById('signup');
 
 signUpButton.addEventListener('click', function () {
     console.log('signUpButton');
-
+    // Swal.fire("Account Created Successfully");
 
     signInForm.style.display = "none";
     signUpForm.style.display = "block";
@@ -28,7 +29,7 @@ let rPassword = document.getElementById('rPassword');
 
 function showMessage(message, divId) {
     let signUpMessage = document.getElementById('signUpMessage')
-    signUpMessage.style.display = "block"
+    // signUpMessage.style.display = "block"
     signUpMessage.innerHTML = message
     signUpMessage.style.opacity = 1
     setTimeout(function () {
@@ -36,6 +37,11 @@ function showMessage(message, divId) {
     }, 5000)
 
 }
+
+
+
+
+
 signUpForm.addEventListener('click', (e) => {
     e.preventDefault()
     // console.log(e);
@@ -51,6 +57,7 @@ signUpForm.addEventListener('click', (e) => {
                 signUpForm.style.display = "none";
                 signInForm.style.display = "block";
                 showMessage("Account Created Successfully", "signUpMessage")
+
             })
             .catch((error) => {
                 const errorCode = error.code;
