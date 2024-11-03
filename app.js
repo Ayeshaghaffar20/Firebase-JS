@@ -1,11 +1,11 @@
-import { getAuth, createUserWithEmailAndPassword } from './firebase.js';
+import { getAuth, createUserWithEmailAndPassword, } from './firebase.js';
 // import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js';
 
 
 
 const signUpButton = document.getElementById('signUpButton');
 const signInButton = document.getElementById('signInButton');
-const signInForm = document.getElementById('signIn');
+const signInForm = document.getElementById('submitSignIn');
 const signUpForm = document.getElementById('signup');
 
 signUpButton.addEventListener('click', function () {
@@ -27,7 +27,7 @@ let lName = document.getElementById('lName');
 let rEmail = document.getElementById('rEmail');
 let rPassword = document.getElementById('rPassword');
 
-function showMessage(message, divId) {
+export function showMessage(message, divId) {
     let signUpMessage = document.getElementById('signUpMessage')
     // signUpMessage.style.display = "block"
     signUpMessage.innerHTML = message
@@ -61,10 +61,13 @@ signUpForm.addEventListener('click', (e) => {
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode);
-                console.log(errorMessage);
+                if ("auth/email-already-in-use") {
+                    showMessage("Email Address Already Exit !!! ", "signUpMessage")
+                }
                 // ..
+                else {
+                    showMessage("Enable to create user", "signUpMessage")
+                }
             });
     }
 }

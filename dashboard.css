@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'Gilroy-black';
+    src: url('assets/font-gilroy/Gilroy-Black.ttf');
+}
+
+@font-face {
+    font-family: 'Gilroy-Medium';
+    src: url('assets/font-gilroy/Gilroy-Medium.ttf');
+}    
+
+
+@font-face {
+    font-family: 'Poppins-light';
+    src: url('assets/font-poppin/Poppins-Light.ttf');
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #c9d6ff;
+    background:linear-gradient(to right,#e2e2e2,#c9d6ff);
+}
+.main-heading{
+    text-align: center;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 40p;
+    margin-top: 20px;
+    font-family: 'Gilroy-black';
+}
+.userProfile{
+    background:#fff;
+    width:450px;
+    padding:1.5rem;
+    margin:50px auto;
+    border-radius:10px;
+    box-shadow:0 20px 35px rgba(0,0,1,0.9);
+}
+
+.userProfilePic{
+    width: 100%;
+    height: 40px;
+}
+
+.userName{
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Gilroy-Medium';
+
+
+}
+
+.userEmailId{
+    font-size: 20px;
+    text-align: center;
+    font-family: 'Poppins-light';
+
+}
+
+.btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    
+
+
+}
+
+.homePageBtn{
+    border: none;
+   border-radius: 15px;
+   padding: 12px 36px;
+   background:linear-gradient(to right,#e2e2e2,#c9d6ff);
+   color: black;
+   text-transform: uppercase;
+   font-size: 18px;
+   font-weight: 500;
+   font-family: 'Gilroy-Medium';
+}
