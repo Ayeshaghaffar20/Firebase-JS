@@ -24,3 +24,11 @@
 // });
 
 
+let userEmail = document.getElementById('userEmail');
+
+userEmail.innerHTML = localStorage.getItem('loginEmail')
+
+
+
+
+

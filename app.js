@@ -1,5 +1,8 @@
 import { getAuth, createUserWithEmailAndPassword, } from './firebase.js';
 // import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js';
+// import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js';
+
+
 
 
 
@@ -21,7 +24,15 @@ signInButton.addEventListener('click', function () {
     signIndiv.style.display = "block";
     signUpForm.style.display = "none";
 })
-
+// export function showMessages(message) {
+//     Swal.fire({
+//         title: "Notification",
+//         text: message,
+//         icon: "success",
+//         timer: 5000,
+//         showConfirmButton: false
+//     });
+// }
 
 let fName = document.getElementById('fName');
 let lName = document.getElementById('lName');
@@ -69,6 +80,7 @@ submitSignUp.addEventListener('click', (e) => {
                 signUpForm.style.display = "none";
                 signIndiv.style.display = "block";
                 showMessage("Account Created Successfully", "signUpMessage")
+
 
             })
             .catch((error) => {
