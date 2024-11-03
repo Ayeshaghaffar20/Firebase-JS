@@ -1,6 +1,6 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 
 // Your web app's Firebase configuration
@@ -19,4 +19,4 @@ const app = initializeApp(firebaseConfig);
 console.log(app);
 
 
-export { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword }
+export { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged }

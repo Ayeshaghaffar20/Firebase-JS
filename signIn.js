@@ -2,19 +2,26 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } f
 import { showMessage } from "./app.js"
 
 
-
+const signInForm = document.getElementById('submitSignIn');
 const signUpButton = document.getElementById('signUpButton');
 const signInButton = document.getElementById('signInButton');
 const signUpForm = document.getElementById('signup');
+const signIndiv = document.getElementById('signIn');
+
 
 signUpButton.addEventListener('click', function () {
-    console.log('signUpButton');
+    console.log('signUpButton', "1");
     // Swal.fire("Account Created Successfully");
 
-    signInForm.style.display = "none";
+    signIndiv.style.display = "none";
     signUpForm.style.display = "block";
 })
-const signInForm = document.getElementById('submitSignIn');
+signInButton.addEventListener('click', function () {
+    console.log('signInButton', "1");
+    signIndiv.style.display = "block";
+    signUpForm.style.display = "none";
+})
+
 signInForm.addEventListener("click", (e) => {
     e.preventDefault()
     const email = document.getElementById('email').value

@@ -4,20 +4,21 @@ import { getAuth, createUserWithEmailAndPassword, } from './firebase.js';
 
 
 const signUpButton = document.getElementById('signUpButton');
+const submitSignUp = document.getElementById('submitSignUp');
 const signInButton = document.getElementById('signInButton');
 const signInForm = document.getElementById('submitSignIn');
 const signUpForm = document.getElementById('signup');
-
+const signIndiv = document.getElementById('signIn');
 signUpButton.addEventListener('click', function () {
-    console.log('signUpButton');
+    // console.log('signUpButton');
     // Swal.fire("Account Created Successfully");
 
-    signInForm.style.display = "none";
+    signIndiv.style.display = "none";
     signUpForm.style.display = "block";
 })
 signInButton.addEventListener('click', function () {
     console.log('signInButton');
-    signInForm.style.display = "block";
+    signIndiv.style.display = "block";
     signUpForm.style.display = "none";
 })
 
@@ -29,7 +30,7 @@ let rPassword = document.getElementById('rPassword');
 
 export function showMessage(message, divId) {
     let signUpMessage = document.getElementById('signUpMessage')
-    // signUpMessage.style.display = "block"
+    signUpMessage.style.display = "block"
     signUpMessage.innerHTML = message
     signUpMessage.style.opacity = 1
     setTimeout(function () {
@@ -42,7 +43,7 @@ export function showMessage(message, divId) {
 
 
 
-signUpForm.addEventListener('click', (e) => {
+submitSignUp.addEventListener('click', (e) => {
     e.preventDefault()
     // console.log(e);
 
@@ -52,10 +53,21 @@ signUpForm.addEventListener('click', (e) => {
             .then((userCredential) => {
                 // Signed up
                 const user = userCredential.user;
+                // Swal.fire({
+                //     title: "Sweet!",
+                //     text: "Modal with a custom image.",
+                //     imageUrl: "https://unsplash.it/400/200",
+                //     imageWidth: 400,
+                //     imageHeight: 200,
+                //     imageAlt: "Custom image"
+                // });
+                rEmail.value = ""
+                rPassword.value = ""
+
 
                 console.log(user);
                 signUpForm.style.display = "none";
-                signInForm.style.display = "block";
+                signIndiv.style.display = "block";
                 showMessage("Account Created Successfully", "signUpMessage")
 
             })
@@ -72,6 +84,8 @@ signUpForm.addEventListener('click', (e) => {
     }
 }
 );
+
+
 
 
 
