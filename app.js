@@ -1,17 +1,22 @@
-import { getAuth, createUserWithEmailAndPassword, } from './firebase.js';
+import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, provider } from './firebase.js';
 // import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js';
 // import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js';
 
 
 
 
-
+// ids section start 
 const signUpButton = document.getElementById('signUpButton');
 const submitSignUp = document.getElementById('submitSignUp');
 const signInButton = document.getElementById('signInButton');
 const signInForm = document.getElementById('submitSignIn');
-const signUpForm = document.getElementById('signup');
-const signIndiv = document.getElementById('signIn');
+const signUpForm = document.getElementById('signup'); // div signUP button to navigate to sign In 
+const signIndiv = document.getElementById('signIn'); // div signIn button to navigate back to sign up
+const loginWithGoogle = document.getElementById("loginWithGoogle")
+// ids section end
+
+
+
 signUpButton.addEventListener('click', function () {
     // console.log('signUpButton');
     // Swal.fire("Account Created Successfully");
@@ -33,6 +38,10 @@ signInButton.addEventListener('click', function () {
 //         showConfirmButton: false
 //     });
 // }
+
+
+
+// factionallity start 
 
 let fName = document.getElementById('fName');
 let lName = document.getElementById('lName');
@@ -96,6 +105,30 @@ submitSignUp.addEventListener('click', (e) => {
     }
 }
 );
+
+loginWithGoogle.addEventListener("click", (e) => {
+    e.preventDefault()
+    console.log("working");
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.customData.email;
+            const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+        });
+
+
+
+
+
+
+})
 
 
 
