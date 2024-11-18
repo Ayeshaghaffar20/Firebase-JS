@@ -1,6 +1,11 @@
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-import { GoogleAuthProvider, signInWithPopup, getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import {
+    GoogleAuthProvider, signInWithPopup, getAuth, createUserWithEmailAndPassword,
+    signInWithEmailAndPassword, onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
 
 
 // Your web app's Firebase configuration
@@ -16,7 +21,13 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
-console.log(app);
+const db = getFirestore(app);
+console.log(db);
 
 
-export { getAuth, provider, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged }
+
+export {
+    getFirestore, db, collection, addDoc,
+    getAuth, provider, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword,
+    signInWithEmailAndPassword, onAuthStateChanged
+}

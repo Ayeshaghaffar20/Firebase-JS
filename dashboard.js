@@ -1,4 +1,5 @@
-// import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from './firebase.js';
+import { getAuth, getFirestore, db, collection, addDoc } from './firebase.js';
+
 
 
 
@@ -26,7 +27,7 @@
 
 let userEmail = document.getElementById('userEmail');
 
-userEmail.innerHTML = localStorage.getItem('loginEmail')
+// userEmail.innerHTML = localStorage.getItem('loginEmail')
 
 
 

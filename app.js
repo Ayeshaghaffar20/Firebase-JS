@@ -1,8 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, provider } from './firebase.js';
-// import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js';
-// import Swal from 'https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js';
-
-
+import { getFirestore, db, collection, addDoc, getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, provider } from './firebase.js';
 
 
 // ids section start 
@@ -46,6 +42,8 @@ signInButton.addEventListener('click', function () {
 let fName = document.getElementById('fName');
 let lName = document.getElementById('lName');
 let rEmail = document.getElementById('rEmail');
+let UserPhone = document.getElementById('UserPhone');
+let userAddress = document.getElementById('UserPhone');
 let rPassword = document.getElementById('rPassword');
 
 export function showMessage(message, divId) {
@@ -63,16 +61,36 @@ export function showMessage(message, divId) {
 
 
 
-submitSignUp.addEventListener('click', (e) => {
+submitSignUp.addEventListener('click', async (e) => {
     e.preventDefault()
     // console.log(e);
 
     if (rEmail.value.trim() && rPassword.value.trim()) {
+
+        try {
+            const docRef = await addDoc(collection(db, "users"), {
+                firstName: fName.value,
+                lastName: lName.value,
+                email: rEmail.value,
+                address: userAddress.value,
+                phone: UserPhone.value
+
+            });
+            console.log("Document written with ID: ", docRef.id);
+        } catch (e) {
+            console.error("Error adding document: ", e);
+        }
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, rEmail.value, rPassword.value)
             .then((userCredential) => {
                 // Signed up
                 const user = userCredential.user;
+                // const docRef = await addDoc(collection(db, "users"), {
+                //     first: "Ada",
+                //     last: "Lovelace",
+                //     born: 1815
+                // });
+                // console.log("Document written with ID: ", docRef.id);
                 // Swal.fire({
                 //     title: "Sweet!",
                 //     text: "Modal with a custom image.",
