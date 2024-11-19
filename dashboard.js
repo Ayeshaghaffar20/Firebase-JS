@@ -1,9 +1,9 @@
-import { getAuth, getFirestore, db, collection, addDoc, getDoc, doc, onAuthStateChanged, getDocs, query, where } from './firebase.js';
+import { getAuth, getFirestore, db, collection, addDoc, getDoc, doc, onAuthStateChanged, getDocs, query, where, signOut } from './firebase.js';
 
 
 
 
-// const auth = getAuth();
+const auth = getAuth();
 // let userProfile = document.getElementById("userProfile")
 // let fName = document.getElementById('fName');
 // let lName = document.getElementById('lName');
@@ -81,7 +81,34 @@ addPostbutton.addEventListener("click", (e) => {
 
 })
 
+let logoutButton = document.getElementById("logOut")
 
+logOut.addEventListener("click", (e) => {
+    e.preventDefault()
+    signOut(auth)
+        .then(() => {
+            Swal.fire({
+                title: "Success!",
+                text: "You have successfully logged out!",
+                icon: "success",
+                confirmButtonText: "OK"
+            })
+                .then(() => {
+                    setTimeout(() => {
+                        window.location.href = "index.html";
+                    }, 0);
+                });
+
+        })
+    console.log("User signed out successfully");
+    // Optional: Redirect to login page or show a logout confirmation
+    // window.location.href = "index.html";
+})
+// .catch((error) => {
+//     console.error("Error signing out:", error);
+// });
+
+// })
 
 
 
