@@ -43,7 +43,7 @@ let fName = document.getElementById('fName');
 let lName = document.getElementById('lName');
 let rEmail = document.getElementById('rEmail');
 let UserPhone = document.getElementById('UserPhone');
-let userAddress = document.getElementById('UserPhone');
+let userAddress = document.getElementById('userAddress');
 let rPassword = document.getElementById('rPassword');
 
 export function showMessage(message, divId) {

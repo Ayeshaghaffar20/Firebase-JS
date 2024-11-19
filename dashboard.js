@@ -1,4 +1,4 @@
-import { getAuth, getFirestore, db, collection, addDoc } from './firebase.js';
+import { getAuth, getFirestore, db, collection, addDoc, getDoc, doc, onAuthStateChanged } from './firebase.js';
 
 
 
@@ -24,10 +24,45 @@ import { getAuth, getFirestore, db, collection, addDoc } from './firebase.js';
 //     }
 // });
 
+const auth = getAuth();
+// const db = getFirestore(app);
 
-let userEmail = document.getElementById('userEmail');
 
-// userEmail.innerHTML = localStorage.getItem('loginEmail')
+onAuthStateChanged(auth, (user) => {
+    const loginId = localStorage.getItem("loginId");
+    if (loginId) {
+        const docRef = doc(db, "user", loginId);
+        getDoc(docRef)
+            .then((docSnap) => {
+                if (docSnap.exists()) {
+                    const userData = docSnap.data();
+                    document.getElementById("fName").innerHTML = userData.firstName
+                    document.getElementById("lName").innerHTML = userData.lastNmae
+                    document.getElementById("rEmail").innerHTML = userData.email
+                    document.getElementById("UserPhone").innerHTML = userData.userPhone
+                    document.getElementById("userAddress").innerHTML = userData.userAddress
+                }
+                else {
+                    // docSnap.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            })
+            .catch((error) => {
+                console.log("error getting document");
+
+
+            })
+    }
+    else {
+        console.log("user id not found in local storage");
+
+    }
+})
+
+
+// let userEmail = document.getElementById('userEmail');
+
+// // userEmail.innerHTML = localStorage.getItem('loginEmail')
 
 
 
