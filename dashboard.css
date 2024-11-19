@@ -51,7 +51,7 @@ body{
     margin: 10px;
 } 
 
-button{
+/* button{
     color: blueviolet;
     background-color: #c9d6ff;
     padding: 8px;
@@ -59,12 +59,12 @@ button{
     font-size: 1rem;
     border: none;
     font-weight: bold;
-}
+} */
 
-button:hover{
+/* button:hover{
     text-decoration: underline;
     color: blue;
-}
+} */
 
 span{
      font-family: 'Poppins-light';
@@ -91,6 +91,28 @@ span{
 }
 
 .addPost a{
+     color: white;
+     text-decoration: none;
+     text-align: center;
+
+}
+.logOut{
+    background: #3448c5;
+    color: white;
+    border-radius: 32px;
+     font-family: 'Gilroy-Medium';
+    font-size: 1.5rem;
+    line-height: 1.625rem;
+    color: white;
+    font-weight: 600;
+    padding: 12px 12px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+}
+.logOut a{
      color: white;
      text-decoration: none;
      text-align: center;
