@@ -25,19 +25,6 @@ signInButton.addEventListener('click', function () {
     signIndiv.style.display = "block";
     signUpForm.style.display = "none";
 })
-// export function showMessages(message) {
-//     Swal.fire({
-//         title: "Notification",
-//         text: message,
-//         icon: "success",
-//         timer: 5000,
-//         showConfirmButton: false
-//     });
-// }
-
-
-
-// factionallity start 
 
 let fName = document.getElementById('fName');
 let lName = document.getElementById('lName');
@@ -63,63 +50,44 @@ export function showMessage(message, divId) {
 
 submitSignUp.addEventListener('click', async (e) => {
     e.preventDefault()
-    // console.log(e);
+
 
     if (rEmail.value.trim() && rPassword.value.trim()) {
 
         try {
+            const auth = getAuth();
+
+            const userCredential = await createUserWithEmailAndPassword(auth, rEmail.value, rPassword.value);
+            const user = userCredential.user;
             const docRef = await addDoc(collection(db, "users"), {
                 firstName: fName.value,
                 lastName: lName.value,
                 email: rEmail.value,
                 address: userAddress.value,
-                phone: UserPhone.value
+                phone: UserPhone.value,
+                authId: user.uid
 
             });
             console.log("Document written with ID: ", docRef.id);
-        } catch (e) {
-            console.error("Error adding document: ", e);
+            rEmail.value = ""
+            rPassword.value = ""
+
+
+            console.log(user);
+            signUpForm.style.display = "none";
+            signIndiv.style.display = "block";
+            showMessage("Account Created Successfully", "signUpMessage")
+
+        } catch (error) {
+            const errorCode = error.code;
+            if ("auth/email-already-in-use") {
+                showMessage("Email Address Already Exit !!! ", "signUpMessage")
+            }
+            // ..
+            else {
+                showMessage("Enable to create user", "signUpMessage")
+            }
         }
-        const auth = getAuth();
-        createUserWithEmailAndPassword(auth, rEmail.value, rPassword.value)
-            .then((userCredential) => {
-                // Signed up
-                const user = userCredential.user;
-                // const docRef = await addDoc(collection(db, "users"), {
-                //     first: "Ada",
-                //     last: "Lovelace",
-                //     born: 1815
-                // });
-                // console.log("Document written with ID: ", docRef.id);
-                // Swal.fire({
-                //     title: "Sweet!",
-                //     text: "Modal with a custom image.",
-                //     imageUrl: "https://unsplash.it/400/200",
-                //     imageWidth: 400,
-                //     imageHeight: 200,
-                //     imageAlt: "Custom image"
-                // });
-                rEmail.value = ""
-                rPassword.value = ""
-
-
-                console.log(user);
-                signUpForm.style.display = "none";
-                signIndiv.style.display = "block";
-                showMessage("Account Created Successfully", "signUpMessage")
-
-
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                if ("auth/email-already-in-use") {
-                    showMessage("Email Address Already Exit !!! ", "signUpMessage")
-                }
-                // ..
-                else {
-                    showMessage("Enable to create user", "signUpMessage")
-                }
-            });
     }
 }
 );

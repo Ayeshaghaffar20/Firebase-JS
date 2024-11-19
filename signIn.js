@@ -36,12 +36,11 @@ signInForm.addEventListener("click", (e) => {
                 const user = userCredential.user;
                 console.log(user);
 
-                localStorage.setItem(`loginId`, user.uid);
-                localStorage.setItem(`loginEmail`, user.email);
 
+                localStorage.setItem(`authLogin`, user.uid);
                 showMessage("Login Successfully", "SignInMessage")
                 window.location.href = 'dashboard.html'
-                // console.log("welcome");
+
 
 
             })

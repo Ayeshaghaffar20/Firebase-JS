@@ -87,6 +87,7 @@ span{
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+     cursor: pointer;
   
 }
 
@@ -94,6 +95,7 @@ span{
      color: white;
      text-decoration: none;
      text-align: center;
+    
 
 }
 .logOut{
@@ -110,6 +112,7 @@ span{
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+     cursor: pointer;
 
 }
 .logOut a{

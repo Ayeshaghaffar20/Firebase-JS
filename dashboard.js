@@ -1,4 +1,4 @@
-import { getAuth, getFirestore, db, collection, addDoc, getDoc, doc, onAuthStateChanged } from './firebase.js';
+import { getAuth, getFirestore, db, collection, addDoc, getDoc, doc, onAuthStateChanged, getDocs, query, where } from './firebase.js';
 
 
 
@@ -24,45 +24,63 @@ import { getAuth, getFirestore, db, collection, addDoc, getDoc, doc, onAuthState
 //     }
 // });
 
-const auth = getAuth();
+// const auth = getAuth();
 // const db = getFirestore(app);
 
 
-onAuthStateChanged(auth, (user) => {
-    const loginId = localStorage.getItem("loginId");
-    if (loginId) {
-        const docRef = doc(db, "user", loginId);
-        getDoc(docRef)
-            .then((docSnap) => {
-                if (docSnap.exists()) {
-                    const userData = docSnap.data();
-                    document.getElementById("fName").innerHTML = userData.firstName
-                    document.getElementById("lName").innerHTML = userData.lastNmae
-                    document.getElementById("rEmail").innerHTML = userData.email
-                    document.getElementById("UserPhone").innerHTML = userData.userPhone
-                    document.getElementById("userAddress").innerHTML = userData.userAddress
-                }
-                else {
-                    // docSnap.data() will be undefined in this case
-                    console.log("No such document!");
-                }
-            })
-            .catch((error) => {
-                console.log("error getting document");
+
+// import { collection, getDocs } from "firebase/firestore";
+
+// const querySnapshot = await getDocs(collection(db, "users"));
+// querySnapshot.forEach((doc) => {
+//     // doc.data() is never undefined for query doc snapshots
+//     console.log(doc.id, " => ", doc.data());
+// });
+
+// const docRef = doc(db, "users", "9nG6fLLUgNHjVVhlFQxZ");
+// const docSnap = await getDoc(docRef);
+
+// if (docSnap.exists()) {
+//     console.log("Document data:", docSnap.data());
+//     document.getElementById("fName").innerHTML = docSnap.data().firstName
+//     document.getElementById("lName").innerHTML = docSnap.data().lastName
+//     document.getElementById("rEmail").innerHTML = docSnap.data().email
+//     document.getElementById("UserPhone").innerHTML = docSnap.data().phone
+//     document.getElementById("userAddress").innerHTML = docSnap.data().address
+// } else {
+//     // docSnap.data() will be undefined in this case
+//     console.log("No such document!");
+// }
+if (localStorage.getItem("authLogin") !== null) {
+    const authId = localStorage.getItem("authLogin");
+    const q = query(collection(db, "users"), where("authId", "==", authId));
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        document.getElementById("fName").innerHTML = doc.data().firstName
+        document.getElementById("lName").innerHTML = doc.data().lastName
+        document.getElementById("rEmail").innerHTML = doc.data().email
+        document.getElementById("UserPhone").innerHTML = doc.data().phone
+        document.getElementById("userAddress").innerHTML = doc.data().address
+    });
+} else {
+    console.log("Key does not exist in localStorage");
+}
 
 
-            })
-    }
-    else {
-        console.log("user id not found in local storage");
+let addPostbutton = document.getElementById("postButton")
+addPostbutton.addEventListener("click", (e) => {
+    e.preventDefault()
 
-    }
+    window.location.href = 'addPost.html'
+    console.log("working");
+
+
+
 })
 
-
-// let userEmail = document.getElementById('userEmail');
-
-// // userEmail.innerHTML = localStorage.getItem('loginEmail')
 
 
 
