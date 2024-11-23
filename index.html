@@ -3,120 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Firebase JS</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-          <!-- <script  type="module" src="
-           https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.all.min.js
-                "></script>
-                <link href="
-            https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.min.css
-" rel="stylesheet"> -->
-    <link rel="stylesheet" href="style.css">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <script src="bootstrap.js"></script>
+    <link rel="stylesheet" href="styleForIndex.css">
+   
 </head>
 <body>
- <div class="container" id="signup" style="display:none;">
-      <h1 class="form-title">Register</h1>
-      <form method="post" action="">
-        <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
-        <div class="input-group">
-           <i class="fas fa-user"></i>
-           <input type="text"  id="fName" placeholder="First Name" required>
-           <label for="fName">First Name</label>
+<nav class="navbar navbar-expand-lg costumize-navBar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"><img class="logo-img" src="assets/images/photography-script-logo.jpg" width="100px" alt=""></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active nav-menu" aria-current="page" href="#">platform</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active nav-menu" href="#">Solutions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active nav-menu" aria-current="page" href="#">Developers</a>
+        </li>
+        <li class="nav-item">
+           <li class="nav-item">
+          <a class="nav-link active nav-menu" aria-current="page" href="#">Resources</a>
+        </li>
+          <a class="nav-link active nav-menu" aria-current="page" href="#">About Us</a>
+        </li>
+       
+        </li>
+          <a class="nav-link active nav-menu" aria-current="page" href="#">Pricing</a>
+        </li>
+      </ul>
+      <a class="navButton btn btn-danger" href="/signIn.html">signIn for free</a>
+    </div>
+  </div>
+</nav>
+
+    <div class="container-fluid" style="background-color: #0c163b;">
+        <div class="container">
+            <div class="row d-flex align-items-center justify-content-center hero-section">
+              <div class="col-12 col-md-12 col-lg-6 ">
+                <div class="hero-contant">
+                  <div class="right-side gap-2">
+                    <p class="hero-text">Image and Video API Platform</p>
+                  <h1 class="hero-heading">Visualize Engaging
+                      Experiences</h1>
+                      <p class="hero-para">Trusted by 2 million developers and 10,000
+                         enterprise and hyper-growth companies as
+                         a critical part of their tech stack.</p>
+                         <div class="hero-button gap-4">
+                          <button class="h-btn started-btn" id="getStarted">get started</button>
+                        <button class="h-btn chat-btn">let's chat</button>
+                         </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 col-md-12 col-lg-6">
+                <div class="wrapper">
+                  <div class="box"></div>
+                </div>
+
+              </div>
+
+            </div>
         </div>
-        <div class="input-group">
-            <i class="fas fa-user"></i>
-            <input type="text"  id="lName" placeholder="Last Name" required>
-            <label for="lName">Last Name</label>
-        </div>
-         <div class="input-group">
-          <i class="fa-solid fa-phone"></i>
-           <input type="text"  id="UserPhone" placeholder="Phone No." required>
-           <label for="UserPhone">Phone No.</label>
-        </div>
-         <div class="input-group">
-           <i class="fa-solid fa-house"></i>
-           <input type="text"  id="userAddress" placeholder="Address" required>
-           <label for="userAddress">Address</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-envelope"></i>
-            <input type="email"  id="rEmail" placeholder="Email" required 
-           
-            >
-            
-            <label for="rEmail">Email</label>
-        </div>
-        <div class="input-group">
-            <i class="fas fa-lock"></i>
-            <input type="password" id="rPassword"  placeholder="Password" required>
-            <label for="rPassword">Password</label>
-        </div>
-       <button class="btn" id="submitSignUp" >Sign Up</button>
-      </form>
-      <p class="or">
-        ----------or--------
-      </p>
-      <div class="icons">
-        <i id="loginWithGoogle" class="fab fa-google"></i>
-        <i class="fab fa-facebook"></i>
-      </div>
-      <div class="links">
-        <p>Already Have Account ?</p>
-        <button id="signInButton">Sign In</button>
-      </div>
     </div>
 
-  <div class="container" id="signIn">
-        <h1 class="form-title">Sign In</h1>
-        <form method="post" action="">
-          <div id="signInMessage" class="messageDiv" style="display:none;"></div>
-
-          <div class="input-group">
-              <i class="fas fa-envelope"></i>
-              <input type="email"  id="email" placeholder="Email" required>
-              <label for="email">Email</label>
-          </div>
-          <div class="input-group">
-              <i class="fas fa-lock"></i>
-            <input type="password" id="password"  placeholder="Password" required>
-              <label for="password">Password</label>
-          </div>
-          <p class="recover">
-            <a href="#">Recover Password</a>
-          </p>
-         <button  class="btn"  id="submitSignIn">Sign In</button>
-        </form>
-        <p class="or">
-          ----------or--------
-        </p>
-        <div class="icons">
-          <i class="fab fa-google"></i>
-          <i class="fab fa-facebook"></i>
+    <div class="container-fluid">
+      <div class="container">
+        <div class="upper-contant">
+          <h2>Master the Art of Web Development</h2>
+        <p>Learn web development from scratch with our expert-led course. Build responsive websites and applications using HTML, CSS, JavaScript, and more. Gain hands-on experience and industry-ready skills to kickstart your career!</p>
         </div>
-        <div class="links">
-          <p>Don't have account yet?</p>
-          <button id="signUpButton">Sign Up</button>
+
+         
+    </div>
+    </div>
+     <div class="container-fluid d-flex">
+        <div class="container">
+  <section class="mx-auto my-5" style="max-width: 23rem;">
+
+    <div class="card">
+      <div class="card-body d-flex flex-row">
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle me-3" height="50px"
+          width="50px" alt="avatar" />
+        <div>
+          <h5 class="card-title font-weight-bold mb-2">New spicy meals</h5>
+          <p class="card-text"><i class="far fa-clock pe-2"></i>07/24/2018</p>
         </div>
       </div>
-
+      <div class="bg-image hover-overlay ripple rounded-0" data-mdb-ripple-color="light">
+        <img class="img-fluid post-img" src="/assets/images/images.jfif"
+          alt="Card image cap" />
+        <a href="#!">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+      </div>
+      <div class="card-body">
+        <p class="card-text " id="collapseContent">
+          Recently, we added several exotic new dishes to our restaurant menu. They come from
+          countries such as Mexico, Argentina, and Spain. Come to us, have some wine and enjoy
+          our juicy meals from around the world.
+        </p>
+        <div class="d-flex justify-content-between">
+          <a class="btn btn-link link-danger p-md-1 my-1" data-mdb-toggle="collapse" href="#collapseContent"
+            role="button" aria-expanded="false" aria-controls="collapseContent">Read more</a>
+  
+        </div>
+      </div>
+    </div>
+    
+  </section>
 </div>
+ <div class="container">
+  <section class="mx-auto my-5" style="max-width: 23rem;">
+
+    <div class="card">
+      <div class="card-body d-flex flex-row">
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle me-3" height="50px"
+          width="50px" alt="avatar" />
+        <div>
+          <h5 class="card-title font-weight-bold mb-2">New spicy meals</h5>
+          <p class="card-text"><i class="far fa-clock pe-2"></i>07/24/2018</p>
+        </div>
+      </div>
+      <div class="bg-image hover-overlay ripple rounded-0" data-mdb-ripple-color="light">
+        <img class="img-fluid post-img" src="/assets/images/gaming.jpg"
+          alt="Card image cap" />
+        <a href="#!">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+      </div>
+      <div class="card-body">
+        <p class="card-text " id="collapseContent">
+          Recently, we added several exotic new dishes to our restaurant menu. They come from
+          countries such as Mexico, Argentina, and Spain. Come to us, have some wine and enjoy
+          our juicy meals from around the world.
+        </p>
+        <div class="d-flex justify-content-between">
+          <a class="btn btn-link link-danger p-md-1 my-1" data-mdb-toggle="collapse" href="#collapseContent"
+            role="button" aria-expanded="false" aria-controls="collapseContent">Read more</a>
+    
+        </div>
+      </div>
+    </div>
+    
+  </section>
+</div>
+ <div class="container">
+  <section class="mx-auto my-5" style="max-width: 23rem;">
+
+    <div class="card">
+      <div class="card-body d-flex flex-row">
+        <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar-8.jpg" class="rounded-circle me-3" height="50px"
+          width="50px" alt="avatar" />
+        <div>
+          <h5 class="card-title font-weight-bold mb-2">New spicy meals</h5>
+          <p class="card-text"><i class="far fa-clock pe-2"></i>07/24/2018</p>
+        </div>
+      </div>
+      <div class="bg-image hover-overlay ripple rounded-0" data-mdb-ripple-color="light">
+        <img class="img-fluid post-img" src="assets/images/coding.png"
+          alt="Card image cap" />
+        <a href="#!">
+          <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+        </a>
+      </div>
+      <div class="card-body">
+        <p class="card-text " id="collapseContent">
+          Recently, we added several exotic new dishes to our restaurant menu. They come from
+          countries such as Mexico, Argentina, and Spain. Come to us, have some wine and enjoy
+          our juicy meals from around the world.
+        </p>
+        <div class="d-flex justify-content-between">
+          <a class="btn btn-link link-danger p-md-1 my-1" data-mdb-toggle="collapse" href="#collapseContent"
+            role="button" aria-expanded="false" aria-controls="collapseContent">Read more</a>
+  
+        </div>
+      </div>
+    </div>
+    
+  </section>
+</div>
+    </div>
+
+  <footer>
+    <div class="footer-section">
+      <div >
+        <ul class="footer-list last">
+          <li>About us</li>
+          <li>Vacancies</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+      <div class="copyright-section">
+        <div class="footer-logo">
+          <img class="f-logo" src="/assets/images/profile.png" alt="">
+        </div>
+        <div class="footer-para">
+          <p class="f-para text-center"><span>&#169;</span> Copyright 2020 Mobirise - All Rights <span class="break-none"><br/></span> Reserved</p>
+        
+        </div>
+      </div>
+      <p class="last ">Make An Order</p>
+    </div>
+  </footer>
 
 
 
-
-
-
-
-
-
-
-
-
-    <script type="module" src="firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="module" src="app.js"></script>
-    <script type="module" src="signIn.js"></script>
-    <script type="module" src="dashboard.js"></script>
-   
-    <!-- <script type="module" src="dashboard.js"></script> -->
 </body>
 </html>

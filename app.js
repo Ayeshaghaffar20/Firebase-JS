@@ -80,6 +80,8 @@ submitSignUp.addEventListener('click', async (e) => {
 
         } catch (error) {
             const errorCode = error.code;
+            console.log("errors", error);
+
             if ("auth/email-already-in-use") {
                 showMessage("Email Address Already Exit !!! ", "signUpMessage")
             }
@@ -115,10 +117,6 @@ loginWithGoogle.addEventListener("click", (e) => {
 
 
 })
-
-
-
-
 
 
 

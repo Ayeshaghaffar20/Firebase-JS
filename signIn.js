@@ -39,7 +39,7 @@ signInForm.addEventListener("click", (e) => {
 
                 localStorage.setItem(`authLogin`, user.uid);
                 showMessage("Login Successfully", "SignInMessage")
-                window.location.href = 'dashboard.html'
+                window.location.href = '/pages/profile.html'
 
 
 

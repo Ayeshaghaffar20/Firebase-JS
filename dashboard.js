@@ -51,64 +51,66 @@ const auth = getAuth();
 //     // docSnap.data() will be undefined in this case
 //     console.log("No such document!");
 // }
-if (localStorage.getItem("authLogin") !== null) {
-    const authId = localStorage.getItem("authLogin");
-    const q = query(collection(db, "users"), where("authId", "==", authId));
+// if (localStorage.getItem("authLogin") !== null) {
+//     const authId = localStorage.getItem("authLogin");
+//     const q = query(collection(db, "users"), where("authId", "==", authId));
 
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.id, " => ", doc.data());
-        document.getElementById("fName").innerHTML = doc.data().firstName
-        document.getElementById("lName").innerHTML = doc.data().lastName
-        document.getElementById("rEmail").innerHTML = doc.data().email
-        document.getElementById("UserPhone").innerHTML = doc.data().phone
-        document.getElementById("userAddress").innerHTML = doc.data().address
-    });
-} else {
-    console.log("Key does not exist in localStorage");
-}
-
-
-let addPostbutton = document.getElementById("postButton")
-addPostbutton.addEventListener("click", (e) => {
-    e.preventDefault()
-
-    window.location.href = 'addPost.html'
-    console.log("working");
+//     const querySnapshot = await getDocs(q);
+//     querySnapshot.forEach((doc) => {
+//         // doc.data() is never undefined for query doc snapshots
+//         console.log(doc.id, " => ", doc.data());
+//         document.getElementById("fName").innerHTML = doc.data().firstName
+//         document.getElementById("lName").innerHTML = doc.data().lastName
+//         document.getElementById("rEmail").innerHTML = doc.data().email
+//         document.getElementById("UserPhone").innerHTML = doc.data().phone
+//         document.getElementById("userAddress").innerHTML = doc.data().address
+//     });
+// } else {
+//     console.log("Key does not exist in localStorage");
+// }
 
 
+// let addPostbutton = document.getElementById("postButton")
+// addPostbutton.addEventListener("click", (e) => {
+//     e.preventDefault()
 
-})
+//     window.location.href = 'addPost.html'
+//     console.log("working");
 
-let logoutButton = document.getElementById("logOut")
 
-logOut.addEventListener("click", (e) => {
-    e.preventDefault()
-    signOut(auth)
-        .then(() => {
-            Swal.fire({
-                title: "Success!",
-                text: "You have successfully logged out!",
-                icon: "success",
-                confirmButtonText: "OK"
-            })
-                .then(() => {
-                    setTimeout(() => {
-                        window.location.href = "index.html";
-                    }, 0);
-                });
-
-        })
-    console.log("User signed out successfully");
-    // Optional: Redirect to login page or show a logout confirmation
-    // window.location.href = "index.html";
-})
-// .catch((error) => {
-//     console.error("Error signing out:", error);
-// });
 
 // })
+
+// let logoutButton = document.getElementById("logOut")
+
+// logOut.addEventListener("click", (e) => {
+//     e.preventDefault()
+//     signOut(auth)
+//         .then(() => {
+//             Swal.fire({
+//                 title: "Success!",
+//                 text: "You have successfully logged out!",
+//                 icon: "success",
+//                 confirmButtonText: "OK"
+//             })
+//                 .then(() => {
+//                     setTimeout(() => {
+//                         window.location.href = "signIn.html";
+//                     }, 0);
+//                 });
+
+//         })
+//     console.log("User signed out successfully");
+//     // Optional: Redirect to login page or show a logout confirmation
+//     // window.location.href = "signIn.html";
+// })
+// // .catch((error) => {
+// //     console.error("Error signing out:", error);
+// // });
+
+// // })
+
+
 
 
 

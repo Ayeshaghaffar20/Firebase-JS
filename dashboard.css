@@ -22,11 +22,74 @@
     box-sizing: border-box;
 }
 
+:root{
+
+ /* Colors ===== */
+--body-color: #E4E9F7;
+--sidebar-color:#FFF;
+--primary-color: #695CFE;
+--primary-color-light: #F6F5FF;
+--toggle-color:#DDD;
+--text-color:#707070;
+
+/* Transition ====== */
+--tran-03: all 0.2s ease;
+--tran-03: all 0.3s ease;
+--tran-04: all 0.4s ease;
+--tran-05: all 0.5s ease;
+}
+
+
 body{
     background-color: #c9d6ff;
     background:linear-gradient(to right,#e2e2e2,#c9d6ff);
 }
-.main-heading{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .main-heading{
     text-align: center;
     text-decoration: none;
     text-transform: capitalize;
@@ -49,7 +112,7 @@ body{
     font-family: 'Poppins-light';
     font-weight: 300;
     margin: 10px;
-} 
+}   */
 
 /* button{
     color: blueviolet;
@@ -66,7 +129,7 @@ body{
     color: blue;
 } */
 
-span{
+/* span{
      font-family: 'Poppins-light';
      font-weight: 300;
      font-size: 25px;
@@ -120,4 +183,4 @@ span{
      text-decoration: none;
      text-align: center;
 
-}
+} */
