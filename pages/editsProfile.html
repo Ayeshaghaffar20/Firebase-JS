@@ -203,22 +203,34 @@
       <section class="container">
       <header>Profile Update Form</header>
       <form action="#" class="form">
+        <div class="column">
         <div class="input-box">
           <label>Full Name</label>
-          <input type="text" placeholder="Enter full name" required />
+          <input type="text" placeholder="Enter full name" id="fname" required />
+          </div>
+          <div class="input-box">
+          <label>Father Name</label>
+          <input type="text" placeholder="Enter father name" id="fatherName" required />
         </div>
+        </div>
+        <div class="column">
         <div class="input-box">
           <label>Email Address</label>
-          <input type="text" placeholder="Enter email address" required />
+          <input type="text" placeholder="Enter email address" id="email" required />
+        </div>
+        <div class="input-box">
+          <label>Designation</label>
+          <input type="text" placeholder="Enter designation" id="designation" required />
+          </div>
         </div>
         <div class="column">
           <div class="input-box">
             <label>Phone Number</label>
-            <input type="number" placeholder="Enter phone number" required />
+            <input type="number" placeholder="Enter phone number" id="pnumber" required />
           </div>
           <div class="input-box">
             <label>Birth Date</label>
-            <input type="date" placeholder="Enter birth date"  />
+            <input type="date" placeholder="Enter birth date" id="dob" />
           </div>
            
         
@@ -227,21 +239,21 @@
           <h3>Gender</h3>
           <div class="gender-option">
             <div class="gender">
-              <input type="radio" id="check-male" name="gender" checked />
+              <input type="radio" id="check-male" name="gender" value="male"  />
               <label for="check-male">male</label>
             </div>
             <div class="gender">
-              <input type="radio" id="check-female" name="gender" />
+              <input type="radio" id="check-female" value="female" name="gender" />
               <label for="check-female">Female</label>
             </div>
           </div>
         </div>
         <div class="input-box address">
           <label>Address</label>
-          <input type="text" placeholder="Enter street address"  />
+          <input type="text" placeholder="Enter street address"  id="address" />
           <div class="column">
             <div class="select-box">
-              <select>
+              <select id="country">
                 <option hidden>Country</option>
                 <option>America</option>
                 <option>Japan</option>
@@ -250,16 +262,16 @@
                 <option>Nepal</option>
               </select>
             </div>
-            <input type="text" placeholder="Enter your city"  />
+            <input type="text" placeholder="Enter your city" id="city" />
           </div>
           <div class="column">
-            <input type="text" placeholder="Enter your region"  />
-            <input type="number" placeholder="Enter postal code"  />
+            <input type="text" placeholder="Enter your region" id="region"  />
+            <input type="number" placeholder="Enter postal code" id="postalCode" />
           </div>
         </div>
                 <!-- text area start -->
                 <div class="container mt-2 textarea-border ">
-                  <textarea class="form-control " id="exampleFormControlTextarea1" rows="3" placeholder="Write Some Profile Information"></textarea>
+                  <textarea class="form-control " id="bio" rows="3" placeholder="Write Some Profile Information" ></textarea>
    </div>
              <!-- text area end -->
              <!-- Profile Picture Upload Area (Drag and Drop) -->
@@ -277,7 +289,7 @@
       </div>
 
 
-        <button>Submit</button>
+        <button id="formsubmition">Submit</button>
       </form>
     </section>
    
@@ -323,6 +335,7 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="../assets/js/material-dashboard.min.js?v=3.2.0"></script>
   <script type="module" src="app.js"></script>
+  <script type="module" src="editsProfile.js"></script>
 
 </body>
 

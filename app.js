@@ -27,7 +27,7 @@ signInButton.addEventListener('click', function () {
 })
 
 let fName = document.getElementById('fName');
-let lName = document.getElementById('lName');
+let fathername = document.getElementById('fathername');
 let rEmail = document.getElementById('rEmail');
 let UserPhone = document.getElementById('UserPhone');
 let userAddress = document.getElementById('userAddress');
@@ -61,13 +61,22 @@ submitSignUp.addEventListener('click', async (e) => {
             const user = userCredential.user;
             const docRef = await addDoc(collection(db, "users"), {
                 firstName: fName.value,
-                lastName: lName.value,
+                fathername: fathername.value,
                 email: rEmail.value,
                 address: userAddress.value,
                 phone: UserPhone.value,
                 authId: user.uid,
                 bimg: `https://res.cloudinary.com/dxogrvwp7/image/upload/v1732081529/Background_hxqxwc.jpg`,
-                fimg: `https://res.cloudinary.com/dxogrvwp7/image/upload/v1732081529/iuxxvpttrtvawpq0wx8d.jpg`
+                fimg: `https://res.cloudinary.com/dxogrvwp7/image/upload/v1732081529/iuxxvpttrtvawpq0wx8d.jpg`,
+                bio: "",
+                dob: "2024-11-19 ",
+                gender: "",
+                country:"",
+                city:"",
+                region:"",
+                postalcode: "",
+                designation:""
+
 
             });
             console.log("Document written with ID: ", docRef.id);
