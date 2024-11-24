@@ -172,7 +172,7 @@ formsubmition.addEventListener("click", async (e) => {
         })
             .then(() => {
                 setTimeout(() => {
-                    window.location.href = "signIn.html";
+                    window.location.href = "profile.html";
                 }, 0);
             });
 
