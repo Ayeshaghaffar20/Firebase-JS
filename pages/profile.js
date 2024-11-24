@@ -1,12 +1,13 @@
 import { getAuth, getFirestore, db, collection, addDoc, getDoc, doc, onAuthStateChanged, getDocs, query, where, signOut } from '../firebase.js';
 
+
 const fname = document.getElementById('fname');
 const bimg = document.getElementById('bimg');
 const fimg = document.getElementById('fimg');
 const fatherName = document.getElementById('fatherName')
 const pnumber = document.getElementById('pnumber')
-const email =document.getElementById('email');
-const country =document.getElementById('country')
+const email = document.getElementById('email');
+const country = document.getElementById('country')
 const gender = document.getElementById('gender')
 const city = document.getElementById('city');
 const postalCode = document.getElementById('postalCode')
@@ -40,7 +41,7 @@ if (localStorage.getItem("authLogin") !== null) {
         document.getElementById("dob").innerHTML = doc.data().dob
         document.getElementById("bio").innerHTML = doc.data().bio
         document.getElementById("designation").innerHTML = doc.data().designation
-        document.getElementById("address").innerHTML=doc.data().address
+        document.getElementById("address").innerHTML = doc.data().address
 
 
         // document.getElementById("userAddress").innerHTML = doc.data().address
