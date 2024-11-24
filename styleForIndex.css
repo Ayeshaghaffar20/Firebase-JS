@@ -61,7 +61,9 @@
     font-family: 'Inter-Medium';
     text-align: centers;
 }
-
+.navSignupBtn{
+    display: flex;
+}
 .hero-contant{
     /* background-color: #0c163b; */
     display: flex;
@@ -246,3 +248,26 @@
   
     
   }
+
+  @media screen and (max-width:992px) {
+   .right-side {
+    display: flex;
+    align-items: center;
+}
+.navSignupBtn{
+    align-items: center;
+    justify-content: center;
+    margin-left: 3rem;
+}
+}
+
+@media screen and (max-width:767px) {
+.cards-section {
+    flex-direction: column;
+}
+ .right-side {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+}
