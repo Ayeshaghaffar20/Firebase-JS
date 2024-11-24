@@ -64,3 +64,26 @@ function fileHandle(value) {
         html2pdf(content).save(filename.value);
     }
 }
+
+
+document.querySelectorAll('.file-upload-area').forEach(function(uploadArea) {
+    uploadArea.addEventListener('dragover', function(event) {
+      event.preventDefault();
+      uploadArea.classList.add('dragover');
+      console.log(uploadArea);
+      
+    });
+  
+    uploadArea.addEventListener('dragleave', function() {
+      uploadArea.classList.remove('dragover');
+    });
+  
+    uploadArea.addEventListener('drop', function(event) {
+      event.preventDefault();
+      uploadArea.classList.remove('dragover');
+      const file = event.dataTransfer.files[0];
+      // Handle the file (you can add file upload logic here)
+      console.log(file); // For testing
+    });
+  });
+  

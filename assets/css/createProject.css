@@ -1,0 +1,164 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  /* Form Container */
+  .form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Input Box Styling */
+  .input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .input-box label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .input-box input,
+  .input-box textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input-box input:focus,
+  .input-box textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Textarea Styling */
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  /* Button Styling */
+  button {
+    padding: 12px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Drag-and-Drop Area */
+  .drop-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px dashed #007bff; */
+    border: 2px dashed #707070; /* Dashed blue border for the upload area */
+    padding: 30px;
+    background-color: #f5f7fa;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .drop-area:hover {
+    background-color: #e6f0ff;
+  }
+  
+  .upload-text {
+    color: #888;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  #image-preview {
+    margin-top: 20px;
+    display: none;
+  }
+  
+  #image-preview img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .form-container {
+      padding: 15px;
+    }
+  
+    .form {
+      gap: 15px;
+    }
+  
+    h1 {
+      font-size: 22px;
+    }
+  
+    .input-box label {
+      font-size: 14px;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 18px;
+    }
+  
+    .input-box input,
+    .input-box textarea {
+      font-size: 14px;
+    }
+  
+    button {
+      font-size: 14px;
+    }
+  }
+  

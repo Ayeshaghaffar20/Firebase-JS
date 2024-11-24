@@ -230,3 +230,71 @@ textarea{
 .textarea-border{
    border: 1px solid #707070 !important; 
 }
+
+/* File Upload Areas */
+.file-upload-area {
+ /*border: 2px dashed #007bff; /* Dashed blue border for the upload area */
+ border: 2px dashed #707070; /* Dashed blue border for the upload area */
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: #f5f7fa; /* Light background color */
+  position: relative;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.file-upload-area:hover {
+  background-color: #e6f0ff; /* Lighter background on hover */
+}
+
+.upload-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff; /* Blue text for the label */
+  cursor: pointer; /* Pointer cursor to indicate interactivity */
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.upload-text {
+  color: #888; /* Light grey text */
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* File Input (hidden but spans the whole area) */
+.file-input {
+  position: absolute; /* Position it absolutely within the container */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0; /* Make the input invisible */
+  cursor: pointer; /* Cursor pointer to show that it's clickable */
+  z-index: 10; /* Ensure the input is on top of other elements */
+}
+
+/* Style for Drag-and-Drop area when file is dragged over */
+.file-upload-area.dragover {
+  background-color: #d3e6ff; /* Slightly darker blue background when dragging a file */
+  border-color: #0056b3; /* Darker blue border during drag-over */
+  /* border-color:#707070; */
+}
+
+/* Style for text inside the drop area */
+.file-upload-area p {
+  font-size: 16px;
+  color: #555; /* Darker text for readability */
+  margin: 0;
+}
+
+/* For removing default input button styles (if visible) */
+input[type="file"]::-webkit-file-upload-button {
+  display: none;
+}
+
+input[type="file"]::-moz-file-upload-button {
+  display: none;
+}
