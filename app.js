@@ -65,7 +65,9 @@ submitSignUp.addEventListener('click', async (e) => {
                 email: rEmail.value,
                 address: userAddress.value,
                 phone: UserPhone.value,
-                authId: user.uid
+                authId: user.uid,
+                bimg: `https://res.cloudinary.com/dxogrvwp7/image/upload/v1732081529/Background_hxqxwc.jpg`,
+                fimg: `https://res.cloudinary.com/dxogrvwp7/image/upload/v1732081529/iuxxvpttrtvawpq0wx8d.jpg`
 
             });
             console.log("Document written with ID: ", docRef.id);
