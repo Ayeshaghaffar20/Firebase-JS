@@ -166,7 +166,7 @@ formsubmition.addEventListener("click", async (e) => {
 
         Swal.fire({
             title: "Success!",
-            text: "You have successfully !",
+            text: "You have successfully update profile !",
             icon: "success",
             confirmButtonText: "OK"
         })
