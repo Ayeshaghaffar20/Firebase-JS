@@ -38,8 +38,22 @@ signInForm.addEventListener("click", (e) => {
 
 
                 localStorage.setItem(`authLogin`, user.uid);
-                showMessage("Login Successfully", "SignInMessage")
-                window.location.href = '/pages/profile.html'
+                // showMessage("Login Successfully", "SignInMessage")
+                // window.location.href = '/pages/profile.html'
+                Swal.fire({
+                    title: "success!",
+                    text: "You have successfully logged in!",
+                    icon: "success",
+                    confirmButtonText: "OK"
+                })
+
+                    .then(() => {
+                        setTimeout(() => {
+
+                            window.location.href = '/pages/profile.html'
+                        }, 0);
+
+                    })
 
 
 

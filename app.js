@@ -71,11 +71,11 @@ submitSignUp.addEventListener('click', async (e) => {
                 bio: "",
                 dob: "2024-11-19 ",
                 gender: "",
-                country:"",
-                city:"",
-                region:"",
+                country: "",
+                city: "",
+                region: "",
                 postalcode: "",
-                designation:""
+                designation: ""
 
 
             });
@@ -87,7 +87,11 @@ submitSignUp.addEventListener('click', async (e) => {
             console.log(user);
             signUpForm.style.display = "none";
             signIndiv.style.display = "block";
-            showMessage("Account Created Successfully", "signUpMessage")
+            Swal.fire("success", "Account created successfully", "success").then(() => {
+
+                location.href = "signIn.html";
+
+            })
 
         } catch (error) {
             const errorCode = error.code;
